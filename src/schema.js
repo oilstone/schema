@@ -7,6 +7,8 @@ class Schema {
 
     #props = {};
 
+    #type;
+
     get primaryKey() {
         return this.getPrimaryKey();
     }
@@ -16,10 +18,19 @@ class Schema {
     }
 
     set props(value) {
-        return this.setProps(value);
+        this.setProps(value);
     }
 
-    constructor() {
+    get type() {
+        return this.getType();
+    }
+
+    set type(value) {
+        this.setType(value);
+    }
+
+    constructor(type) {
+        this.#type = type;
         this.#keyChain = new KeyChain();
     }
 
@@ -65,6 +76,16 @@ class Schema {
 
     setProps(value) {
         this.#props = value;
+
+        return this;
+    }
+
+    getType() {
+        return this.#type;
+    }
+
+    setType(value) {
+        this.#type = value;
 
         return this;
     }
