@@ -8,10 +8,14 @@ module.exports = {
         filename: 'schema.js',
         library: 'schema',
         libraryTarget: 'umd',
-        publicPath: '/'
+        publicPath: '/',
+        globalObject: 'this',
     },
     devServer: {
         contentBase: './dist',
+    },
+    optimization: {
+        minimize: true
     },
     module: {
         rules: [
